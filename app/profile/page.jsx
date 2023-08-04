@@ -22,9 +22,7 @@ const MyProfile = () => {
           setPosts(data)
         }
         
-        console.log(session?.user)
         if (session?.user.id) {
-            console.log("yes")
             fetchPosts()
         }
     }, [])
@@ -52,6 +50,7 @@ const MyProfile = () => {
     return (
         <Profile 
             name="My"
+            profilePic={session?.user.image}
             desc="Welcome to your personal profile!"
             data={posts}
             handleEdit={handleEdit}

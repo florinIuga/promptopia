@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useSession } from "next-auth/react"
 import { usePathname, useRouter } from "next/navigation"
 
-const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
+const PromptCard = ({post, handleTagClick, handleEdit, handleDelete, handleProfileClick}) => {
   const { data: session } = useSession()
   const [copied, setCopied] = useState("")
 
@@ -24,6 +24,7 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
           <Image
             src={post.creator.image}
             alt="use_image"
+            onClick={() => handleProfileClick && handleProfileClick(post.creator)}
             width={40}
             height={40}
             className="rounded-full object-contain"
